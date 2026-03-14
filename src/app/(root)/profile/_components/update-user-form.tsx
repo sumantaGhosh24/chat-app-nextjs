@@ -62,13 +62,13 @@ const UpdateUserForm = ({user}: UpdateUserFormProps) => {
           name: values.name,
           formData,
           public_id: user.imagePublicId as string,
-          path,
+          path: path as string,
         });
       } else {
         await updateUser({
           id: user.id,
           name: values.name,
-          path,
+          path: path as string,
         });
       }
 
