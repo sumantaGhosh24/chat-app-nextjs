@@ -21,6 +21,7 @@ const eslintConfig = [
       "@typescript-eslint/consistent-type-imports": "off",
       "@typescript-eslint/no-unused-expressions": "off",
       "@typescript-eslint/no-this-alias": "off",
+      "@typescript-eslint/no-empty-object-type": "off",
     },
   },
 ];
