@@ -11,29 +11,53 @@ interface UserDetailsProps {
 
 const UserDetails = ({user}: UserDetailsProps) => {
   return (
-    <div className="my-10 flex w-full items-center justify-center">
-      <div className="w-[95%] space-y-4 rounded-lg p-5 shadow-lg shadow-black dark:shadow-white">
-        <h1 className="mb-5 text-3xl font-bold">Your Details</h1>
-        <div className="mb-5">
-          <h2 className="text-2xl font-bold capitalize">{user.name}</h2>
+    <div className="container mx-auto space-y-4 rounded-md p-5 shadow-md dark:shadow-gray-400">
+      <div className="rounded-2xl shadow-xl overflow-hidden">
+        <div className="h-40 bg-gradient-to-r from-blue-500 to-indigo-500" />
+        <div className="flex justify-center -mt-16">
+          <Image
+            src={user.imageUrl as string}
+            alt={user.imagePublicId || "user"}
+            height={120}
+            width={120}
+            className="rounded-full border-4 border-white dark:border-gray-900 object-cover"
+          />
         </div>
-        <Image
-          src={user.imageUrl as string}
-          alt={user.imagePublicId || "user"}
-          height={200}
-          width={400}
-          className="h-[250px] w-full rounded"
-        />
-        <h4 className="font-bold">Email: {user.email}</h4>
-        <h4 className="font-bold">Mobile number: {user.mobileNumber}</h4>
-        <h4 className="font-bold">
-          Created at: {new Date(user.createdAt).toLocaleDateString()} (
-          {formatDistanceToNowStrict(user.createdAt)} ago)
-        </h4>
-        <h4 className="font-bold">
-          Updated at: {new Date(user.updatedAt).toLocaleDateString()} (
-          {formatDistanceToNowStrict(user.updatedAt)} ago)
-        </h4>
+        <div className="text-center mt-4 px-6 pb-6">
+          <h2 className="text-3xl font-bold capitalize">{user.name}</h2>
+          <p className="text-gray-500 mt-1">{user.email}</p>
+          <div className="border-t my-6" />
+          <div className="grid md:grid-cols-2 gap-6 text-sm text-left">
+            <div className="space-y-3 flex">
+              <p>
+                <span className="font-semibold">Mobile:</span>{" "}
+                {user.mobileNumber}
+              </p>
+            </div>
+            <div className="space-y-3 flex">
+              <p>
+                <span className="font-semibold">Created:</span>{" "}
+                {new Date(user.createdAt).toLocaleDateString()}{" "}
+              </p>
+              (
+              <p className="text-gray-500 text-xs">
+                {formatDistanceToNowStrict(user.createdAt)} ago
+              </p>
+              )
+            </div>
+            <div className="space-y-3 flex">
+              <p>
+                <span className="font-semibold">Updated:</span>{" "}
+                {new Date(user.updatedAt).toLocaleDateString()}{" "}
+              </p>
+              (
+              <p className="text-gray-500 text-xs">
+                {formatDistanceToNowStrict(user.updatedAt)} ago
+              </p>
+              )
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
