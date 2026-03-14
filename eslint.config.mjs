@@ -19,6 +19,8 @@ const eslintConfig = [
       "@typescript-eslint/no-unnecessary-type-constraint": "off",
       "@typescript-eslint/no-wrapper-object-types": "off",
       "@typescript-eslint/consistent-type-imports": "off",
+      "@typescript-eslint/no-unused-expressions": "off",
+      "@typescript-eslint/no-this-alias": "off",
     },
   },
 ];
